@@ -21,7 +21,9 @@ steps:
   
 - script: |
     python -m pip install flit
-  displayName: 'Install flit for release management'
+    python -m pip install wheel
+    python -m pip install twine
+  displayName: 'Install flit, wheel and twine for release management'
   
 - task: NodeTool@0
   inputs:
