@@ -20,8 +20,8 @@ steps:
   displayName: 'Upgrade pip'
   
 - script: |
-    python -m pip install nox
-  displayName: 'Install nox for release management'
+    python -m pip install flit
+  displayName: 'Install flit for release management'
   
 - task: NodeTool@0
   inputs:
@@ -35,5 +35,19 @@ steps:
   displayName: 'npm install dependencies & build gulp'
 
 - script: |
-    python -m nox -s release
-  displayName: 'Run nox -s release'
+    python3 -m flit build --format wheel
+  displayName: 'flit build furo wheel'
+
+- task: CopyFiles@2
+  inputs:
+    SourceFolder: '$(Build.SourcesDirectory)/dist/'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)'
+    Contents: '**'
+  displayName: 'Copy furo wheel to artifact directory'
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'drop'
+    publishLocation: 'Container'
+  displayName: 'Publish documentation as artifact'
