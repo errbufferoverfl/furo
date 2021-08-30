@@ -1,0 +1,39 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- main
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- task: UsePythonVersion@0
+  inputs:
+    versionSpec: '$(pythonVersion)'
+  displayName: 'Use python $(pythonVersion)'
+
+- script: |
+    python -m pip install --upgrade pip
+  displayName: 'Upgrade pip'
+  
+- script: |
+    python -m pip install nox
+  displayName: 'Install nox for release management'
+  
+- task: NodeTool@0
+  inputs:
+    versionSpec: '12'
+  displayName: 'Install npm 12'
+
+- script: |
+    npm install
+    ./node_modules/.bin/gulp build
+  workingDirectory: '$(Build.SourcesDirectory)'
+  displayName: 'npm install dependencies & build gulp'
+
+- script: |
+    python -m nox -s release
+  displayName: 'Run nox -s release'
