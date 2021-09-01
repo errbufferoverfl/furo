@@ -1,0 +1,51 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- main
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- task: UsePythonVersion@0
+  inputs:
+    versionSpec: '$(pythonVersion)'
+  displayName: 'Use python $(pythonVersion)'
+
+- script: |
+    python -m pip install --upgrade pip
+  displayName: 'Upgrade pip'
+  
+- script: |
+    python -m pip install flit
+    python -m pip install wheel
+    python -m pip install twine
+  displayName: 'Install flit, wheel and twine for release management'
+  
+- task: NodeTool@0
+  inputs:
+    versionSpec: '12'
+  displayName: 'Install npm 12'
+
+- script: |
+    npm install
+    ./node_modules/.bin/gulp build
+  workingDirectory: '$(Build.SourcesDirectory)'
+  displayName: 'npm install dependencies & build gulp'
+
+- script: |
+    python3 -m flit build --format wheel
+  displayName: 'flit build furo wheel'
+
+- task: PipAuthenticate@1
+  inputs:
+    artifactFeed: furo/furo-release-pipeline
+    pythonDownloadServiceConnections: furo-release
+  displayName: 'Pip Authenticate'
+
+- script: |
+    python -m twine upload -r furo-release-pipeline --config-file $(PYPIRC_PATH) dist/*.whl
+  displayName: 'Publish wheel to furo-release-pipeline'
