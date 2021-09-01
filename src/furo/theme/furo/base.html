@@ -73,10 +73,13 @@
 
     {#- Custom front matter #}
     {%- block extrahead -%}{%- endblock -%}
-
     {%- include "header.html" %}
 </head>
 <body>
+<script>
+    document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+</script>
+
 {% block main %}{% endblock %}
 
 {%- block scripts -%}
