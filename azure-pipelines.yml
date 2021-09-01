@@ -21,7 +21,9 @@ steps:
   
 - script: |
     python -m pip install flit
-  displayName: 'Install flit for release management'
+    python -m pip install wheel
+    python -m pip install twine
+  displayName: 'Install flit, wheel and twine for release management'
 
 - task: NodeTool@0
   inputs:
@@ -38,16 +40,12 @@ steps:
     python3 -m flit build --format wheel
   displayName: 'flit build furo wheel'
 
-- task: CopyFiles@2
+- task: PipAuthenticate@1
   inputs:
-    SourceFolder: '$(Build.SourcesDirectory)/dist/'
-    TargetFolder: '$(Build.ArtifactStagingDirectory)'
-    Contents: '**'
-  displayName: 'Copy furo wheel to artifact directory'
+    artifactFeed: furo/furo-release-pipeline
+    pythonDownloadServiceConnections: furo-release
+  displayName: 'Pip Authenticate'
 
-- task: PublishBuildArtifacts@1
-  inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-    ArtifactName: 'drop'
-    publishLocation: 'Container'
-  displayName: 'Publish documentation as artifact'
+- script: |
+    python -m twine upload -r furo-release-pipeline --config-file $(PYPIRC_PATH) dist/*.whl
+  displayName: 'Publish wheel to furo-release-pipeline'
