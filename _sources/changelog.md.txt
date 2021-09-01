@@ -1,5 +1,22 @@
 # Changelog
 
+<!--
+
+Version codenames style: {adjective} {colorname}
+
+https://patternbasedwriting.com/elementary_writing_success/list-4800-adjectives/
+https://en.wikipedia.org/wiki/Lists_of_colors
+
+-->
+
+## 2021.08.31 -- Aspiring Avocado
+
+- First stable release! 🎉
+- Document stability policy.
+- Tweak API styling selectors.
+- Drop reference to no-longer-used `pygments_dark.css`.
+- Eagerly set the light/dark mode theme, when loading a page.
+
 ## 2021.08.17.beta43
 
 - Add support for sphinx-design.
