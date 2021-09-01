@@ -40,12 +40,12 @@ steps:
     python3 -m flit build --format wheel
   displayName: 'flit build furo wheel'
 
-- task: PipAuthenticate@1
+- task: TwineAuthenticate@1
   inputs:
     artifactFeed: furo/furo-release-pipeline
     pythonDownloadServiceConnections: furo-release
-  displayName: 'Pip Authenticate'
+  displayName: 'Twine Authenticate'
 
 - script: |
-    python -m twine upload dist/*.whl -r furo-release-pipeline
+    python -m twine upload dist/*.whl -r "furo-release-pipeline" --config-file $(PYPIRC_PATH)
   displayName: 'Publish wheel to furo-release-pipeline'
