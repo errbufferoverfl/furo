@@ -24,7 +24,7 @@ steps:
     python -m pip install wheel
     python -m pip install twine
   displayName: 'Install flit, wheel and twine for release management'
-  
+
 - task: NodeTool@0
   inputs:
     versionSpec: '12'
