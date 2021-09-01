@@ -10,12 +10,12 @@
 <title>{{ _("Search") }} - {{ docstitle }}</title>
 {%- endblock htmltitle -%}
 
-{% block content %}
+{% block body %}
 <div id="fallback" class="admonition error">
-  <p class="admonition-title">{% trans %}Error{% endtrans %}</p>
-  <p>
-    {% trans %}Please activate JavaScript to enable the search functionality.{% endtrans %}
-  </p>
+    <p class="admonition-title">{% trans %}Error{% endtrans %}</p>
+    <p>
+        {% trans %}Please activate JavaScript to enable the search functionality.{% endtrans %}
+    </p>
 </div>
 <script>document.getElementById('fallback').hidden = true;</script>
 

@@ -1,6 +1,6 @@
 <!doctype html>
-<html class="no-js"{% if language is not none %} lang="{{ language }}"{% endif %}>
-  <head>
+<html class="no-js" {% if language is not none %} lang="{{ language }}" {% endif %}>
+<head>
     {%- block site_meta -%}
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
@@ -9,29 +9,29 @@
     {%- if metatags %}{{ metatags }}{% endif -%}
 
     {%- block linktags %}
-        {%- if hasdoc('about') -%}
-          <link rel="author" title="{{ _('About these documents') }}" href="{{ pathto('about') }}" />
-        {%- endif -%}
-        {%- if hasdoc('genindex') -%}
-          <link rel="index" title="{{ _('Index') }}" href="{{ pathto('genindex') }}" />
-        {%- endif -%}
-        {%- if hasdoc('search') -%}
-          <link rel="search" title="{{ _('Search') }}" href="{{ pathto('search') }}" />
-        {%- endif -%}
-        {%- if hasdoc('copyright') -%}
-          <link rel="copyright" title="{{ _('Copyright') }}" href="{{ pathto('copyright') }}" />
-        {%- endif -%}
-        {%- if next -%}
-          <link rel="next" title="{{ next.title|striptags|e }}" href="{{ next.link|e }}" />
-        {%- endif -%}
-        {%- if prev -%}
-          <link rel="prev" title="{{ prev.title|striptags|e }}" href="{{ prev.link|e }}" />
-        {%- endif -%}
+    {%- if hasdoc('about') -%}
+    <link rel="author" title="{{ _('About these documents') }}" href="{{ pathto('about') }}"/>
+    {%- endif -%}
+    {%- if hasdoc('genindex') -%}
+    <link rel="index" title="{{ _('Index') }}" href="{{ pathto('genindex') }}"/>
+    {%- endif -%}
+    {%- if hasdoc('search') -%}
+    <link rel="search" title="{{ _('Search') }}" href="{{ pathto('search') }}"/>
+    {%- endif -%}
+    {%- if hasdoc('copyright') -%}
+    <link rel="copyright" title="{{ _('Copyright') }}" href="{{ pathto('copyright') }}"/>
+    {%- endif -%}
+    {%- if next -%}
+    <link rel="next" title="{{ next.title|striptags|e }}" href="{{ next.link|e }}"/>
+    {%- endif -%}
+    {%- if prev -%}
+    <link rel="prev" title="{{ prev.title|striptags|e }}" href="{{ prev.link|e }}"/>
+    {%- endif -%}
     {%- endblock linktags %}
 
     {# Favicon #}
     {%- if favicon -%}
-      <link rel="shortcut icon" href="{{ pathto('_static/' + favicon, 1) }}"/>
+    <link rel="shortcut icon" href="{{ pathto('_static/' + favicon, 1) }}"/>
     {%- endif -%}
 
     {#- Generator banner -#}
@@ -41,11 +41,11 @@
 
     {#- Site title -#}
     {%- block htmltitle -%}
-      {% if pagename == master_doc %}
-        <title>{{ docstitle|striptags|e }}</title>
-      {% else %}
-        <title>{{ title|striptags|e }} - {{ docstitle|striptags|e }}</title>
-      {% endif %}
+    {% if pagename == master_doc %}
+    <title>{{ docstitle|striptags|e }}</title>
+    {% else %}
+    <title>{{ title|striptags|e }} - {{ docstitle|striptags|e }}</title>
+    {% endif %}
     {%- endblock -%}
 
     {%- block styles -%}
@@ -53,11 +53,11 @@
     {# Custom stylesheets #}
     {%- block regular_styles -%}
     {%- for css in css_files -%}
-      {% if css|attr("filename") -%}
-        {{ css_tag(css) }}
-      {%- else -%}
-        <link rel="stylesheet" href="{{ pathto(css, 1)|e }}" type="text/css" />
-      {%- endif %}
+    {% if css|attr("filename") -%}
+    {{ css_tag(css) }}
+    {%- else -%}
+    <link rel="stylesheet" href="{{ pathto(css, 1)|e }}" type="text/css"/>
+    {%- endif %}
     {% endfor -%}
     {%- endblock regular_styles -%}
 
@@ -67,7 +67,6 @@
     {%- endblock -%}
 
     {%- block extra_styles %}
-    <link media="(prefers-color-scheme: dark)" rel="stylesheet" href="{{ pathto('_static/pygments_dark.css', 1) }}">
     {%- endblock -%}
 
     {%- endblock styles -%}
@@ -76,23 +75,23 @@
     {%- block extrahead -%}{%- endblock -%}
 
     {%- include "header.html" %}
-  </head>
-  <body>
-    {% block main %}{% endblock %}
+</head>
+<body>
+{% block main %}{% endblock %}
 
-    {%- block scripts -%}
+{%- block scripts -%}
 
-    {# Custom JS #}
-    {%- block regular_scripts -%}
-    {% for path in script_files -%}
-      {{ js_tag(path) }}
-    {% endfor -%}
-    {%- endblock regular_scripts -%}
+{# Custom JS #}
+{%- block regular_scripts -%}
+{% for path in script_files -%}
+{{ js_tag(path) }}
+{% endfor -%}
+{%- endblock regular_scripts -%}
 
-    {# Theme-related JavaScript code #}
-    {%- block theme_scripts -%}
-    {%- endblock -%}
+{# Theme-related JavaScript code #}
+{%- block theme_scripts -%}
+{%- endblock -%}
 
-    {%- endblock scripts -%}
-  </body>
+{%- endblock scripts -%}
+</body>
 </html>
