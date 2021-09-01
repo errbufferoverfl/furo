@@ -47,5 +47,5 @@ steps:
   displayName: 'Pip Authenticate'
 
 - script: |
-    python -m twine upload -r furo-release-pipeline --config-file $(PYPIRC_PATH) dist/*.whl
+    python -m twine upload dist/*.whl -r furo-release-pipeline --config-file $(PYPIRC_PATH)
   displayName: 'Publish wheel to furo-release-pipeline'
