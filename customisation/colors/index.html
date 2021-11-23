@@ -5,14 +5,14 @@
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 <link rel="index" title="Index" href="../../genindex/"/><link rel="search" title="Search" href="../../search/"/><link rel="next" title="Changing fonts" href="../fonts/"/><link rel="prev" title="Adding a logo" href="../logo/"/>
 
-    <meta name="generator" content="sphinx-4.1.2, furo 2021.08.31.dev1"/>
-    <title>Changing colors - Furo</title>
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=c7c65a82b42f6b978e58466c1e9ef2509836d916" />
+    <meta name="generator" content="sphinx-4.3.0, furo 2021.11.23.dev1"/>
+        <title>Changing colors - Furo</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/tabs.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.d53ab927f7bad3eaa42da95908504b10.min.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?digest=fa662b5b4464a69058d784d1f31b9542af2fad15" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.59c74d8c95b765a7fd995ac71d459ebe.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?digest=162172b38a08c6872404d382f250adad38052e76" />
     <link rel="stylesheet" type="text/css" href="../../_static/pied-piper-admonition.css" />
     
     
@@ -111,7 +111,11 @@
     <div class="visually-hidden">Hide table of contents sidebar</div>
 </label>
 
-
+<div class="announcement">
+    <aside class="announcement-content">
+         If you like this theme, you can <a href="https://shoutouts.dev/projects/pradyunsg/furo">express your gratitude</a>! 
+    </aside>
+</div>
 
 <div class="page">
     <header class="mobile-header">
@@ -161,225 +165,11 @@
     document.body.dataset.theme = localStorage.getItem("theme") || "auto";
 </script>
 
-<aside class="sidebar-drawer">
-    <div class="sidebar-container">
-        
-        <div class="sidebar-sticky"><a class="sidebar-brand" href="../../">
-  
-  
-  <span class="sidebar-brand-text">Furo</span>
-  
-</a><form class="sidebar-search-container" method="get" action="../../search/" role="search">
-  <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
-  <input type="hidden" name="check_keywords" value="yes">
-  <input type="hidden" name="area" value="default">
-</form>
-<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
-  <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../../quickstart/">Quickstart</a></li>
-<li class="toctree-l1 current has-children"><a class="reference internal" href="../">Customisation</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../logo/">Adding a logo</a></li>
-<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Changing colors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../fonts/">Changing fonts</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../landing-page/">Changing landing page</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../sidebar/">Changing sidebar elements</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../sidebar-title/">Changing sidebar title</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../toc/">Hiding Contents sidebar</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../injecting/">Injecting code</a></li>
-</ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../reference/">Reference</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../reference/text-formatting/">Text Formatting</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../reference/admonitions/">Admonitions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../reference/api/">API documentation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../reference/code-blocks/">Code Blocks</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../reference/hyperlinks/">Hyperlinks</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../reference/images/">Images</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../reference/lists/">Lists</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../reference/tables/">Tables</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../reference/tabs/">Tabs</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../../recommendations/">Recommendations</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Development</span></p>
-<ul>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../contributing/">Contributing</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../contributing/workflow/">Workflow</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../contributing/internals/">Internals</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../contributing/design/">Design Notes</a></li>
-</ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../kitchen-sink/">Kitchen Sink</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../kitchen-sink/demo/">Paragraph Level Markup</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../kitchen-sink/lists_tables/">Lists &amp; Tables</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../kitchen-sink/really-long/">Really Long Page</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../kitchen-sink/structure/">Structural Elements</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../kitchen-sink/structure/#structural-elements-2">Structural Elements 2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../kitchen-sink/autodoc/">Autodoc</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../kitchen-sink/sphinx-design/">sphinx-design stuff</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../../stability/">Stability Policy</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../changelog/">Changelog</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../license/">License</a></li>
-<li class="toctree-l1"><a class="reference external" href="https://github.com/pradyunsg/furo">GitHub Repository</a></li>
-</ul>
-
-</div>
-</div>
-        </div>
-        
-    </div>
-</aside>
-<div class="main">
-    <div class="content">
-        <article role="main">
-            <div class="content-icon-container">
-                <div class="theme-toggle-container theme-toggle-content">
-                    <button class="theme-toggle">
-                        <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
-                        <svg class="theme-icon-when-auto">
-                            <use href="#svg-sun-half"></use>
-                        </svg>
-                        <svg class="theme-icon-when-dark">
-                            <use href="#svg-moon"></use>
-                        </svg>
-                        <svg class="theme-icon-when-light">
-                            <use href="#svg-sun"></use>
-                        </svg>
-                    </button>
-                </div>
-                <label class="toc-overlay-icon toc-content-icon" for="__toc">
-                    <div class="visually-hidden">Toggle table of contents sidebar</div>
-                    <i class="icon">
-                        <svg>
-                            <use href="#svg-toc"></use>
-                        </svg>
-                    </i>
-                </label>
-            </div>
-             <section class="tex2jax_ignore mathjax_ignore" id="changing-colors">
-<h1>Changing colors<a class="headerlink" href="#changing-colors" title="Permalink to this headline">¶</a></h1>
-<p>Furo allows customising colors to fit your brand’s identity, by using CSS variables. These can be declared directly in <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/configuration.html#confval-html_theme_options"><code class="docutils literal notranslate"><span class="pre">html_theme_options</span></code></a>, in your <code class="docutils literal notranslate"><span class="pre">conf.py</span></code>.</p>
-<section id="how-light-and-dark-mode-work">
-<h2>How light and dark mode work<a class="headerlink" href="#how-light-and-dark-mode-work" title="Permalink to this headline">¶</a></h2>
-<p>Furo is in light mode by default, switching to the dark mode when requested by the user’s browser (through <code class="docutils literal notranslate"><span class="pre">prefers-color-scheme:</span> <span class="pre">dark</span></code>).</p>
-<p>As a consequence of this design, the dark mode inherits the variable definitions from the light mode, only overriding specific values to adapt the theme. While the mechanism for switching between light/dark mode is not configurable, the exact CSS variable definitions used in this process can be configured.</p>
-<p>It is possible to use different content for light and dark mode, by setting
-<code class="docutils literal notranslate"><span class="pre">only-dark</span></code> and <code class="docutils literal notranslate"><span class="pre">only-light</span></code> classes on the content. This is the
-<a class="reference internal" href="../../reference/images/#light-dark-images"><span class="std std-ref">recommended approach</span></a> for handling images with backgrounds.</p>
-</section>
-<section id="defining-overrides-for-defaults">
-<h2>Defining overrides for defaults<a class="headerlink" href="#defining-overrides-for-defaults" title="Permalink to this headline">¶</a></h2>
-<p>Furo allows defining <a class="reference internal" href="../#css-variables"><span class="std std-ref">CSS variables that overrides its default values</span></a>. The exact variable names to use can be found in Furo’s source code <a class="reference external" href="https://github.com/pradyunsg/furo/tree/main/src/furo/assets/styles/variables">here</a>.</p>
-<p>This mechanism allows configuring nearly every facet of Furo’s design, including spacing between various items and the colors of nearly every component.</p>
-<div class="admonition-example admonition">
-<p class="admonition-title">Example</p>
-<p>Changing Furo’s blue accent (used for stylising links, sidebar’s content etc) to a purple one:</p>
-<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="n">html_theme_options</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">"light_css_variables"</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s2">"color-brand-primary"</span><span class="p">:</span> <span class="s2">"#7C4DFF"</span><span class="p">,</span>
-        <span class="s2">"color-brand-content"</span><span class="p">:</span> <span class="s2">"#7C4DFF"</span><span class="p">,</span>
-    <span class="p">},</span>
-    <span class="s2">"dark_css_variables"</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s2">"color-brand-primary"</span><span class="p">:</span> <span class="s2">"#7C4DFF"</span><span class="p">,</span>
-        <span class="s2">"color-brand-content"</span><span class="p">:</span> <span class="s2">"#7C4DFF"</span><span class="p">,</span>
-    <span class="p">},</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-</div>
-</section>
-<section id="code-block-styling">
-<h2>Code block styling<a class="headerlink" href="#code-block-styling" title="Permalink to this headline">¶</a></h2>
-<p>Furo does not directly handle highlighting of the code blocks. This is done by Sphinx, and is configurable using <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/configuration.html#confval-pygments_style"><code class="docutils literal notranslate"><span class="pre">pygments_style</span></code></a> and <code class="docutils literal notranslate"><span class="pre">pygments_dark_style</span></code> in <code class="docutils literal notranslate"><span class="pre">conf.py</span></code>.</p>
-<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="n">pygments_style</span> <span class="o">=</span> <span class="s2">"sphinx"</span>
-<span class="n">pygments_dark_style</span> <span class="o">=</span> <span class="s2">"monokai"</span>
-</pre></div>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p><code class="docutils literal notranslate"><span class="pre">pygments_dark_style</span></code> is Furo-specific at this time.</p>
-</div>
-</section>
-</section>
- 
-        </article>
-        <footer>
-            
-            <div class="related-pages"><a class="next-page" href="../fonts/">
-                    <div class="page-info">
-                        <div class="context">
-                            <span>Next</span>
-                        </div>
-                        <div class="title">Changing fonts</div>
-                    </div>
-                    <svg>
-                        <use href="#svg-arrow-right"></use>
-                    </svg>
-                </a>
-                <a class="prev-page" href="../logo/">
-                    <svg>
-                        <use href="#svg-arrow-right"></use>
-                    </svg>
-                    <div class="page-info">
-                        <div class="context">
-                            <span>Previous</span>
-                        </div>
-                        
-                        <div class="title">Adding a logo</div>
-                        
-                    </div>
-                </a>
-            </div>
-            <div class="related-information">
-    Copyright &#169; 2020, Pradyun Gedam
-    |
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a>
-    and
-    <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
-    <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-    <a class="muted-link" href="../../_sources/customisation/colors.md.txt"
-       rel="nofollow">
-        Show Source
-    </a>
-</div>
-            
-        </footer>
-    </div>
-    <aside class="toc-drawer">
-        
-        
-        <div class="toc-sticky toc-scroll">
-            <div class="toc-title-container">
-          <span class="toc-title">
-            Contents
-          </span>
-            </div>
-            <div class="toc-tree-container">
-                <div class="toc-tree">
-                    <ul>
-<li><a class="reference internal" href="#">Changing colors</a><ul>
-<li><a class="reference internal" href="#how-light-and-dark-mode-work">How light and dark mode work</a></li>
-<li><a class="reference internal" href="#defining-overrides-for-defaults">Defining overrides for defaults</a></li>
-<li><a class="reference internal" href="#code-block-styling">Code block styling</a></li>
-</ul>
-</li>
-</ul>
-
-                </div>
-            </div>
-        </div>
-        
-        
-    </aside>
-</div>
-</div><script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+<script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
 <script src="../../_static/jquery.js"></script>
 <script src="../../_static/underscore.js"></script>
 <script src="../../_static/doctools.js"></script>
-<script src="../../_static/scripts/main.js"></script>
+<script src="../../_static/scripts/furo.js"></script>
 <script src="../../_static/clipboard.min.js"></script>
 <script src="../../_static/copybutton.js"></script>
 <script src="../../_static/tabs.js"></script>
