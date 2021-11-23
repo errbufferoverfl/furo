@@ -3,14 +3,14 @@
 // to select the relevant items.
 
 // API docs!
-dl.py, dl.cpp, dl.c, dl.js
+dl[class]:not(.option-list):not(.field-list):not(.footnote):not(.glossary):not(.simple)
   // Tweak the spacing of all the things!
   dd
     margin-left: 2rem
     > :first-child
       margin-top: 0.125rem
     > :last-child
-      margin-bottom: 1.25rem
+      margin-bottom: 0.75rem
 
   // This is used for the arguments
   .field-list
@@ -40,31 +40,45 @@ dl.py, dl.cpp, dl.c, dl.js
     &:target
       background-color: var(--color-api-highlight-on-target)
 
-dl.class,
-dl.function,
-dl.method,
-dl.enum,
-dl.enum-class,
-dl.enum-struct,
-dl.type,
-dl.exception
-  > dt
-    padding-left: 3em
-    text-indent: -3em
+.sig
+  font-weight: bold
 
-    // adjust the size of the [source] link on the right.
-    a.reference.internal
-      .viewcode-link
-        width: 3.5rem
-        font-size: var(--font-size--small)
+  font-size: var(--api-font-size)
+  font-family: var(--font-stack--monospace)
+
+  padding-top: 0.25rem
+  padding-bottom: 0.25rem
+  padding-right: 0.5rem
+
+  // These are intentionally em, to properly match the font size.
+  padding-left: 3em
+  text-indent: -2.5em
+
+  border-radius: 0.25rem
+
+  background: var(--color-api-background)
+
+  &:hover
+    background: var(--color-api-background-hover)
+
+  // adjust the size of the [source] link on the right.
+  a.reference.internal
+    .viewcode-link
+      font-weight: normal
+      width: 3.5rem
+
+  // Break words when they're too long
+  span.pre
+    word-break: break-word
 
 em.property
-  color: var(--color-api-keyword)
-  padding-right: 0.25rem
+  font-style: normal
+  &:first-child
+    color: var(--color-api-keyword)
 .sig-name
-  font-weight: bold
   color: var(--color-api-name)
 .sig-prename
+  font-weight: normal
   color: var(--color-api-pre-name)
 .sig-paren
   color: var(--color-api-paren)

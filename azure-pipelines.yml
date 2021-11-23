@@ -16,14 +16,15 @@ steps:
   displayName: 'Use python $(pythonVersion)'
 
 - script: |
-    python -m pip install --upgrade pip
+    python3 -m pip install --upgrade pip
   displayName: 'Upgrade pip'
   
 - script: |
-    python -m pip install flit
-    python -m pip install wheel
-    python -m pip install twine
-  displayName: 'Install flit, wheel and twine for release management'
+    - script: |
+    python3 -m pip install wheel
+    python3 -m pip install twine
+    python3 -m pip install build
+  displayName: 'Install build'
 
 - task: NodeTool@0
   inputs:
@@ -31,14 +32,9 @@ steps:
   displayName: 'Install npm 12'
 
 - script: |
-    npm install
-    ./node_modules/.bin/gulp build
+    python3 -m build
   workingDirectory: '$(Build.SourcesDirectory)'
-  displayName: 'npm install dependencies & build gulp'
-
-- script: |
-    python3 -m flit build --format wheel
-  displayName: 'flit build furo wheel'
+  displayName: 'Build Furo theme'
 
 - task: TwineAuthenticate@1
   inputs:

@@ -9,6 +9,59 @@ https://en.wikipedia.org/wiki/Lists_of_colors
 
 -->
 
+## 2021.11.23 -- Hearty Honeydew
+
+- Improve code block styling.
+- Explicitly declare compatibility constraints for pygments.
+- Break words in API documentation, when the words are too long.
+- Drop the `def ` on function and method signatures.
+- Reduce the font-weight in `sig-prename`.
+
+## 2021.11.16 -- Grumpy Ghost
+
+- Fix a typo, that broke the sidebar highlight logic.
+
+## 2021.11.15 -- Fearless Fawn
+
+- Tweak API documentation presentation to match pdoc3's style.
+- Bring back browser-specific prefixes, for compatibility.
+
+## 2021.11.12.1 -- Enamoured Emerald bugfix
+
+- Fix RECORD file contents.
+
+## 2021.11.12 -- Enamoured Emerald
+
+- Adopt `sphinx-theme-builder`, which runs the JS-based asset build process during the regular Python build process.
+- Rework the build pipeline to be webpack-based.
+- Tweak colours in dark mode.
+- Present better error messages on misconfiguration.
+- Tweak presentation of blockquotes, to be more visually distinct.
+- Stylize topics like admonitions, as specified in the reStructuredText spec.
+- Handle long single words in the sidebar.
+- Only hide Sphinx from the footer, when `show_sphinx` is set to `False`.
+
+## 2021.10.09 -- Delicate Dandelion
+
+- Add a bit more space below content icon container.
+- Add CSS variables for table header background and table border.
+- Fix behaviour of URL-style references in `html_logo` and `html_favicon`.
+- Improve selector for embedded-in-text images.
+- Improve the contrast ratios in API documentation.
+
+## 2021.09.22 -- Cavalier Canary
+
+- Restyle API documentation signatures, to have a background and use monospace fonts.
+- Reduce spacing for items in API documentation.
+- Improve the presentation of links in site-wide announcement.
+- Only add a border on code inside paragraphs.
+- Use `noscript` for presenting "search needs JS" message.
+
+## 2021.09.08 -- Balmy Blue
+
+- Prevent screen-reader-only content from showing up in Sphinx search results.
+- Improve support for various footer configurations.
+
 ## 2021.08.31 -- Aspiring Avocado
 
 - First stable release! 🎉

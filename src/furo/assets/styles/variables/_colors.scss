@@ -30,11 +30,13 @@
   --color-brand-content: #2a5adf;
 
   // API documentation
-  --color-api-overall: var(--color-foreground-muted);
-  --color-api-name: var(--color-brand-content);
-  --color-api-pre-name: var(--color-brand-content);
+  --color-api-background: var(--color-background-secondary);
+  --color-api-background-hover: var(--color-background-hover);
+  --color-api-overall: var(--color-foreground-secondary);
+  --color-api-name: var(--color-problematic);
+  --color-api-pre-name: var(--color-problematic);
   --color-api-paren: var(--color-foreground-secondary);
-  --color-api-keyword: var(--color-problematic);
+  --color-api-keyword: var(--color-foreground-primary);
   --color-api-highlight-on-target: #ffffcc;
 
   // Inline code background
@@ -58,6 +60,10 @@
   // - *-gradient(...)
   // - special literal values (eg: transparent, none)
   //////////////////////////////////////////////////////////////////////////////
+
+  // Tables
+  --color-table-header-background: var(--color-background-secondary);
+  --color-table-border: var(--color-background-border);
 
   // Cards
   --color-card-border: var(--color-background-secondary);
@@ -100,7 +106,7 @@
   --color-sidebar-search-border: var(--color-background-border);
   --color-sidebar-search-icon: var(--color-foreground-muted);
 
-  // Table of Contents
+  // Table of Contents (right)
   --color-toc-background: var(--color-background-primary);
   --color-toc-title-text: var(--color-foreground-muted);
   --color-toc-item-text: var(--color-foreground-secondary);
@@ -111,6 +117,7 @@
   --color-content-foreground: var(--color-foreground-primary);
   --color-content-background: transparent;
 
+  // Links
   --color-link: var(--color-brand-content);
   --color-link--hover: var(--color-brand-content);
   --color-link-underline: var(--color-background-border);
@@ -118,7 +125,7 @@
 }
 
 @mixin colors-dark {
-  --color-problematic: #e25050;
+  --color-problematic: #ee5151;
 
   // Base Colors
   --color-foreground-primary: #ffffffcc; // for main text and headings
@@ -148,6 +155,7 @@
   --color-guilabel-border: #13395f80;
 
   // API documentation
+  --color-api-keyword: var(--color-foreground-secondary);
   --color-api-highlight-on-target: #333300;
 
   // Admonitions

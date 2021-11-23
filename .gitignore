@@ -1,4 +1,5 @@
 # npm stuff
+.nodeenv
 node_modules
 
 # Python stuff
@@ -6,7 +7,3 @@ node_modules
 /build
 /dist
 __pycache__
-
-# Generated files
-src/*/theme/*/static/scripts
-src/*/theme/*/static/styles

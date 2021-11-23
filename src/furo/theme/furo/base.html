@@ -30,8 +30,8 @@
     {%- endblock linktags %}
 
     {# Favicon #}
-    {%- if favicon -%}
-    <link rel="shortcut icon" href="{{ pathto('_static/' + favicon, 1) }}"/>
+    {%- if favicon_url -%}
+      <link rel="shortcut icon" href="{{ favicon_url }}"/>
     {%- endif -%}
 
     {#- Generator banner -#}
@@ -41,11 +41,13 @@
 
     {#- Site title -#}
     {%- block htmltitle -%}
-    {% if pagename == master_doc %}
-    <title>{{ docstitle|striptags|e }}</title>
-    {% else %}
-    <title>{{ title|striptags|e }} - {{ docstitle|striptags|e }}</title>
-    {% endif %}
+      {% if not docstitle %}
+        <title>{{ title|striptags|e }}</title>
+      {% elif pagename == master_doc %}
+        <title>{{ docstitle|striptags|e }}</title>
+      {% else %}
+        <title>{{ title|striptags|e }} - {{ docstitle|striptags|e }}</title>
+      {% endif %}
     {%- endblock -%}
 
     {%- block styles -%}

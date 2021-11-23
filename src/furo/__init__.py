@@ -1,14 +1,13 @@
 """A clean customisable Sphinx documentation theme."""
 
-__version__ = "2021.08.31.dev1"
+__version__ = "2021.11.23.dev1"
 
 import hashlib
 import logging
 import os
-import textwrap
 from functools import lru_cache
 from pathlib import Path
-from typing import Any, Dict, List, Optional, cast
+from typing import Any, Dict, Iterator, List, Optional
 
 import sphinx.application
 from bs4 import BeautifulSoup
@@ -157,7 +156,7 @@ def _html_page_context(
     if "scripts" in context:
         _add_asset_hashes(
             context["scripts"],
-            ["scripts/main.js"],
+            ["scripts/furo.js"],
         )
 
     # Basic constants
@@ -193,14 +192,26 @@ def _html_page_context(
 def _builder_inited(app: sphinx.application.Sphinx) -> None:
     if app.config.html_theme != "furo":
         return
+    if "furo" in app.config.extensions:
+        raise Exception(
+            "Did you list it in the `extensions` in conf.py? "
+            "If so, please remove it. Furo does not work with non-HTML builders "
+            "and specifying it as an `html_theme` is sufficient."
+        )
 
-    # Our `main.js` file needs to be loaded as soon as possible.
-    app.add_js_file("scripts/main.js", priority=200)
+    if not isinstance(app.builder, StandaloneHTMLBuilder):
+        raise Exception(
+            "Furo is being used as an extension in a non-HTML build. "
+            "This should not happen."
+        )
+
+    # Our JS file needs to be loaded as soon as possible.
+    app.add_js_file("scripts/furo.js", priority=200)
 
     # 500 is the default priority for extensions, we want this after this.
     app.add_css_file("styles/furo-extensions.css", priority=600)
 
-    builder = cast(StandaloneHTMLBuilder, app.builder)
+    builder = app.builder
     assert builder, "what?"
     assert (
         builder.highlighter is not None
@@ -293,6 +304,14 @@ def _get_dark_style(app: sphinx.application.Sphinx) -> Style:
     return PygmentsBridge("html", dark_style).formatter_args["style"]
 
 
+def _get_styles(formatter: HtmlFormatter, *, prefix: str) -> Iterator[str]:
+    """Get styles out of a formatter, where everything has the correct prefix."""
+    for line in formatter.get_linenos_style_defs():
+        yield f"{prefix} {line}"
+    yield from formatter.get_background_style_defs(prefix)
+    yield from formatter.get_token_style_defs(prefix)
+
+
 def get_pygments_stylesheet() -> str:
     """Generate the theme-specific pygments.css.
 
@@ -301,21 +320,19 @@ def get_pygments_stylesheet() -> str:
     light_formatter = HtmlFormatter(style=_KNOWN_STYLES_IN_USE["light"])
     dark_formatter = HtmlFormatter(style=_KNOWN_STYLES_IN_USE["dark"])
 
-    light = light_formatter.get_style_defs(".highlight")
-    dark_one = dark_formatter.get_style_defs('body[data-theme="dark"] .highlight')
-    dark_two = dark_formatter.get_style_defs(
-        'body:not([data-theme="light"]) .highlight'
-    )
+    lines: List[str] = []
 
-    return textwrap.dedent(
-        f"""
-            {light}
-            {dark_one}
-            @media (prefers-color-scheme: dark) {{
-                {dark_two}
-            }}
-        """
-    )
+    lines.extend(_get_styles(light_formatter, prefix=".highlight"))
+
+    dark_prefix = 'body[data-theme="dark"] .highlight'
+    lines.extend(_get_styles(dark_formatter, prefix=dark_prefix))
+
+    not_light_prefix = 'body:not([data-theme="light"]) .highlight'
+    lines.append("@media (prefers-color-scheme: dark) {")
+    lines.extend(_get_styles(dark_formatter, prefix=not_light_prefix))
+    lines.append("}")
+
+    return "\n".join(lines)
 
 
 # Yup, we overwrite the default pygments.css file, because it can't possibly respect
